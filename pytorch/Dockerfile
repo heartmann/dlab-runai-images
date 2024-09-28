@@ -17,6 +17,13 @@ RUN . /opt/conda/etc/profile.d/conda.sh && \
     rm /tmp/requirements.txt && \
     chmod -R 777 /opt/conda/envs/default
 
+# download spacy models
+RUN . /opt/conda/etc/profile.d/conda.sh && \
+    conda activate default && \
+    python -m spacy download en_core_web_sm && \
+    python -m spacy download de_core_news_sm && \
+    python -m spacy download fr_core_news_sm
+
 # install ngrok
 RUN curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
 	| sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null \

@@ -25,3 +25,4 @@ bitsandbytes
 datasets
 evaluate
 sacrebleu
+spacy
